@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/UsersSkillsMap",
+    "definitions": {
+        "UsersSkillsMap": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "users": {
+                    "$ref": "#/definitions/Users"
+                }
+            },
+            "required": [
+                "users"
+            ],
+            "title": "UsersSkillsMap"
+        },
+        "Users": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "string"
+                },
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "skillmap": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Skillmap"
+                    }
+                }
+            },
+            "required": [
+                "firstName",
+                "id",
+                "lastName",
+                "skillmap"
+            ],
+            "title": "Users"
+        },
+        "Skillmap": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "skill": {
+                    "$ref": "#/definitions/Skill"
+                }
+            },
+            "required": [
+                "id",
+                "skill"
+            ],
+            "title": "Skillmap"
+        },
+        "Skill": {
+            "type": "string",
+            "enum": [
+                "Postman",
+                "Spring",
+                "Spring Boot version2",
+                "C",
+                "J4EA",
+                "UIDevlop"
+            ],
+            "title": "Skill"
+        }
+    }
+}

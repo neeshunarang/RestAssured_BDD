@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/SkillDelete",
+    "definitions": {
+        "SkillDelete": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "message_response": {
+                    "type": "string"
+                },
+                "Skill_Id": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "Skill_Id",
+                "message_response"
+            ],
+            "title": "SkillDelete"
+        }
+    }
+}

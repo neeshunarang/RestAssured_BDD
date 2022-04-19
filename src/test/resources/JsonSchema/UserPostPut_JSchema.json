@@ -1,0 +1,51 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/UserPost",
+    "definitions": {
+        "UserPost": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "user_id": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "phone_number": {
+                    "type": "integer"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "time_zone": {
+                    "type": "string"
+                },
+                "linkedin_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ]
+                },
+                "visa_status": {
+                    "type": "string"
+                },
+                "message_response": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "linkedin_url",
+                "location",
+                "message_response",
+                "name",
+                "phone_number",
+                "time_zone",
+                "user_id",
+                "visa_status"
+            ],
+            "title": "UserPost"
+        }
+    }
+}
