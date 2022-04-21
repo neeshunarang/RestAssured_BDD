@@ -32,6 +32,7 @@ public class Skills_Delete extends BaseClass{
 	public void the_response_message_will_be_displayed_as_with_the_status_code(String string, int statusCode) throws IOException {
 		response.then().assertThat().body(matchesJsonSchemaInClasspath(skillDelete_JSchema));
 		Assert.assertEquals(response.statusCode(), statusCode);
+		//Response Body Validation
 		response.then().assertThat().body("Skill_Id",equalTo(skill_id));
 		response.then().assertThat().body("message_response",equalTo("The record has been deleted !!"));
 		

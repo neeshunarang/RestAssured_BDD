@@ -44,11 +44,18 @@ public class Skills_Put extends BaseClass{
 	public void status_code_created_will_be_displayed(int statusCode) throws IOException {
 		response.then().assertThat().body(matchesJsonSchemaInClasspath(skillPostPut_JSchema));
 		Assert.assertEquals(response.statusCode(), statusCode);
+		//Response Body Validation
 		response.then().assertThat().body("skill_id",equalTo(skill_id));
 		response.then().assertThat().body("skill_name",equalTo(skill_name));
-		
 		response.then().assertThat().body("message_response",equalTo("Successfully Updated !!"));
 		
+		//DB Validation- Checking DB by calling GET Method 
+		resDBCheck = ValidAuthorization()
+				   .get(baseURL + endPointS + "/" + skill_id);
+		
+		Assert.assertEquals(resDBCheck.path("skill_id"),skill_id);//Checking Autogenerating ID
+		Assert.assertEquals(resDBCheck.path("skill_name"),skill_name);
+				
 		XLUtils.setCellData(skillsExcelPath, sheet,1,3,"Passed" ,CellType.STRING);
 		XLUtils.setCellData(skillsExcelPath, sheet,1,4,response.statusCode() ,CellType.NUMERIC);
 		XLUtils.setCellData(skillsExcelPath, sheet,1,5,response.asPrettyString() ,CellType.STRING);

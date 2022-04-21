@@ -5,6 +5,7 @@ import io.restassured.specification.RequestSpecification;
 public class BaseClass {
 	public static RequestSpecification request;
 	public static Response response;
+	public static Response resDBCheck;
 	//public static RestAssured baseURI;
 	
 	ReadConfig readconfig=new ReadConfig();
